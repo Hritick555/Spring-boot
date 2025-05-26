@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_vendor?createDatabaseIfNotExists=true
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update  #For every run, the existing data will get updated. If we use create,we need to perform POST to create new data
+                     #Update :Suppose already there is 5 entries and if we run the app again 6th entry will be created when POST
+                     #Create :If already there is 5 entries and if we run the app, Database will get truncated
+                     #Create-drop : It will clear all the data when we stop the app and create a new one when starting the app
+    show-sql: true #It will show the sql queries
+    properties:
+      hibernate:
+        format_sql: true 
+        dialect: org.hibernate.dialect.MySQLDialect
